@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class Arquivo {
 
     // Métodos que podemos realizar com o arquivo
-    public void escrever(Funcionarios func) {
+    public void escrever(Jogo jogo) {
         // Instanciando os objetos que permitirão a escrita de dados
         OutputStream os = null; // fluxo de entrada
         OutputStreamWriter osw = null; //leitor de fluxo de entrada
@@ -17,27 +17,15 @@ public class Arquivo {
 
         try {
             // Abrindo a saída de dados
-            os = new FileOutputStream("Funcionarios.txt", true); // Nome do arquivo onde será salvo
+            os = new FileOutputStream("Jogos.txt", true); // Nome do arquivo onde será salvo
             osw = new OutputStreamWriter(os);
             bw = new BufferedWriter(osw);
 
-
-            // Flag que indica onde começa as informações do Funcionário
-            bw.write("++ Funcionarios ++\n");
-            bw.write(func.getNomeFunc() + "\n");
-            bw.write(func.getCpfFunc() + "\n");
-            bw.write(func.getIdadeFunc() + "\n");
-
-            /*
-            // 1. Escrita de forma estática, ou seja, direta
-
-            linha="Olá mundo 3";
-            bw.write("Olá mundo\n");
-            bw.write("Olá mundo 2");
-            bw.newLine();
-            bw.write(linha);
-
-             */
+            // Flag que indica onde começa as informações do Jogo
+            bw.write("++ Jogos ++\n");
+            bw.write(jogo.getNome() + "\n");
+            bw.write(jogo.getPreco() + "\n");
+            bw.write(jogo.getGenero() + "\n");
 
         } catch (Exception e) {
             System.out.println("ERRO: " + e);
@@ -53,10 +41,10 @@ public class Arquivo {
     // 2. Método ler
 
 
-    public ArrayList<Funcionarios> ler() {
+    public ArrayList<Jogo> ler() {
 
         // ArrayList auxiliar para salvar funcionários encontrados no arquivo
-        ArrayList<Funcionarios> encontreiNoArquivo = new ArrayList<>();
+        ArrayList<Jogo> encontreiNoArquivo = new ArrayList<>();
 
         // Classes que permitem leitura de dados do arquivo
         InputStream is = null; //fluxo saida
@@ -68,7 +56,7 @@ public class Arquivo {
 
         try {
             // Instanciando os objetos
-            is = new FileInputStream("Funcionarios.txt");
+            is = new FileInputStream("Jogos.txt");
             isr = new InputStreamReader(is);
             br = new BufferedReader(isr);
 
@@ -77,15 +65,15 @@ public class Arquivo {
 
             while (linhaLer != null) {
                 // Comparando se o que está em linhaLer é igual a minha flag
-                if (linhaLer.contains("++ Funcionarios ++")) {
+                if (linhaLer.contains("++ Jogos ++")) {
                     // Variável auxiliar de funcionario
-                    Funcionarios f1 = new Funcionarios();
-                    f1.setNomeFunc(br.readLine());
-                    f1.setCpfFunc(br.readLine());
-                    f1.setIdadeFunc(Integer.parseInt(br.readLine()));
+                    Jogo j = new Jogo();
+                    j.setNome(br.readLine());
+                    j.setPreco(Double.parseDouble(br.readLine()));
+                    j.setGenero(br.readLine());
 
                     // Adicionando o funcionario no array
-                    encontreiNoArquivo.add(f1);
+                    encontreiNoArquivo.add(j);
                 }
                 linhaLer = br.readLine();
             }
@@ -100,9 +88,7 @@ public class Arquivo {
             }
         }
 
-
         return encontreiNoArquivo;
-
 
     }
 }

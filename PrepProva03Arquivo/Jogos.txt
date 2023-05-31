@@ -1,0 +1,20 @@
+++ Jogos ++
+Pele
+200.0
+Romance
+++ Jogos ++
+Romarinho
+120.0
+Novela
+++ Jogos ++
+Maradona
+150.2
+Musica
+++ Jogos ++
+Mario Kart
+200.0
+Corrida
+++ Jogos ++
+Crash
+150.0
+Aventura

@@ -1,0 +1,20 @@
+++ Produtos ++
+Arroz
+10.0
+Comida
+++ Produtos ++
+Papel Higiênico
+5.0
+Higiene
+++ Produtos ++
+Tapete
+20.0
+Decoração
+++ Produtos ++
+Feijão
+8.0
+Comida
+++ Produtos ++
+Sabonete
+2.0
+Higiene
